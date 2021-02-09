@@ -9,6 +9,8 @@ KUBECTL ?= kubectl
 # for boilerplate
 OPERATOR_NAME=route-monitor-operator
 MAINPACKAGE=.
+TESTTARGETS=$(shell ${GOENV} go list -e ./... | egrep -v "/(vendor)/" | grep -v /int)
+
 
 VERSION ?= $(OPERATOR_VERSION)
 PREV_VERSION ?= $(VERSION)
